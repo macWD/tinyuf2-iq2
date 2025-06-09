@@ -23,7 +23,8 @@ THIS_MAKEFILE := $(lastword $(MAKEFILE_LIST))
 TOP := $(shell realpath $(THIS_MAKEFILE))
 TOP := $(patsubst %/ports/make.mk,%,$(TOP))
 
-CURRENT_PATH := $(shell realpath --relative-to=$(TOP) `pwd`)
+# was: CURRENT_PATH := $(shell realpath --relative-to=$(TOP) `pwd`)
+CURRENT_PATH := 'ports/stm32f4'
 
 UF2CONV_PY = $(PYTHON3) $(TOP)/lib/uf2/utils/uf2conv.py
 
