@@ -58,7 +58,7 @@
 //--------------------------------------------------------------------+
 
 #define USB_VID           0x239A
-#define USB_PID           0x005D
+#define USB_PID           0x0058
 #define USB_MANUFACTURER  "VeederRoot"
 #define USB_PRODUCT       "Red Jacket IQ2"
 
