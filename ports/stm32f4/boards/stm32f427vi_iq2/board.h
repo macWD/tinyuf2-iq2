@@ -29,19 +29,18 @@
 // LED
 //--------------------------------------------------------------------+
 
-#define LED_PORT              GPIOD
-#define LED_PIN               GPIO_PIN_13
-#define LED_STATE_ON          1
+#define LED_PORT              GPIOC
+#define LED_PIN               GPIO_PIN_11   // Yellow "COMM" LED
+#define LED_STATE_ON          0
 
 //--------------------------------------------------------------------+
 // Neopixel
 //--------------------------------------------------------------------+
-
 // Number of neopixels
 #define NEOPIXEL_NUMBER       0
+// Note: No neopixel support on this board. Fake values.
 // Brightness percentage from 1 to 255
 #define NEOPIXEL_BRIGHTNESS   0x10
-
 #define NEOPIXEL_PORT         GPIOC
 #define NEOPIXEL_PIN          GPIO_PIN_0
 #define NEOPIXEL_PIN_MODE     GPIO_MODE_OUTPUT_PP
@@ -71,13 +70,13 @@
 // UART
 //--------------------------------------------------------------------+
 
-#define UART_DEV              USART2
-#define UART_CLOCK_ENABLE     __HAL_RCC_USART2_CLK_ENABLE
-#define UART_CLOCK_DISABLE    __HAL_RCC_USART2_CLK_DISABLE
-#define UART_GPIO_PORT        GPIOA
-#define UART_GPIO_AF          GPIO_AF7_USART2
-#define UART_TX_PIN           GPIO_PIN_2
-#define UART_RX_PIN           GPIO_PIN_3
+#define UART_DEV              USART3
+#define UART_CLOCK_ENABLE     __HAL_RCC_USART3_CLK_ENABLE
+#define UART_CLOCK_DISABLE    __HAL_RCC_USART3_CLK_DISABLE
+#define UART_GPIO_PORT        GPIOB
+#define UART_GPIO_AF          GPIO_AF7_USART3
+#define UART_TX_PIN           GPIO_PIN_10
+#define UART_RX_PIN           GPIO_PIN_11
 
 //--------------------------------------------------------------------+
 // RCC Clock
