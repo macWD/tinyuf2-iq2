@@ -11,3 +11,4 @@ sdkconfig~
 ports/espressif/apps/self_update/main/bootloader_bin.c
 
 .DS_Store
+.vscode
