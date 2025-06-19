@@ -28,10 +28,22 @@
 //--------------------------------------------------------------------+
 // LED
 //--------------------------------------------------------------------+
-
-#define LED_PORT              GPIOC
-#define LED_PIN               GPIO_PIN_11   // Yellow "COMM" LED
-#define LED_STATE_ON          0
+// Yellow "COMM" LED
+#define LED_Y_PORT            GPIOC
+#define LED_Y_PIN             GPIO_PIN_11   
+#define LED_Y_STATE_ON        0
+// Green "PUMP ON" LED
+#define LED_G_PORT            GPIOC
+#define LED_G_PIN             GPIO_PIN_10 
+#define LED_G_STATE_ON        0
+// Red "ERROR" LED
+//#define LED_R_PORT            
+//#define LED_R_PIN             
+#define LED_R_STATE_ON        1
+// TinyUF2 uses a single LED to indicate the state of the board.
+#define LED_PORT              LED_G_PORT
+#define LED_PIN               LED_G_PIN
+#define LED_STATE_ON          LED_G_STATE_ON
 
 //--------------------------------------------------------------------+
 // Neopixel
