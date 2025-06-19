@@ -57,6 +57,7 @@ static volatile uint32_t _timer_count = 0;
 //
 //--------------------------------------------------------------------+
 static bool check_dfu_mode(void);
+static bool checkBootloaderJumpFlag(void);
 
 int main(void) {
   board_init();
@@ -72,7 +73,10 @@ int main(void) {
     TUF2_LOG1("Jump to application\r\n");
     if (board_teardown) board_teardown();
     if (board_teardown2) board_teardown2();
-    board_app_jump();
+    // If the app didn't bring us here, we will jump to it
+    if (!checkBootloaderJumpFlag()) {
+      board_app_jump();
+    }
     TUF2_LOG1("Failed to jump\r\n");
     while (1) {}
   }
@@ -96,6 +100,12 @@ int main(void) {
     tud_task();
   }
 #endif
+}
+
+// check to see if we started from the app's upload function
+static bool checkBootloaderJumpFlag(void) {
+  // TODO: Implement a check for a bootloader flag
+  return true;  // boot code started from the app
 }
 
 // return true if start DFU mode, else App mode
