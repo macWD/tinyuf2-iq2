@@ -31,6 +31,7 @@ SRC_C += \
 	ports/stm32f4/boards.c \
 	ports/stm32f4/board_flash.c \
 	$(ST_CMSIS)/Source/Templates/system_stm32f4xx.c \
+	$(ST_HAL_DRIVER)/Src/stm32f4xx_hal_pwr.c \
 	$(ST_HAL_DRIVER)/Src/stm32f4xx_hal.c \
 	$(ST_HAL_DRIVER)/Src/stm32f4xx_hal_cortex.c \
 	$(ST_HAL_DRIVER)/Src/stm32f4xx_hal_rcc.c \

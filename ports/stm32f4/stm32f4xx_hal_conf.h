@@ -376,9 +376,9 @@
  #include "stm32f4xx_hal_ltdc.h"
 #endif /* HAL_LTDC_MODULE_ENABLED */
 
-#ifdef HAL_PWR_MODULE_ENABLED
+//#ifdef HAL_PWR_MODULE_ENABLED
  #include "stm32f4xx_hal_pwr.h"
-#endif /* HAL_PWR_MODULE_ENABLED */
+//#endif /* HAL_PWR_MODULE_ENABLED */
 
 #ifdef HAL_RNG_MODULE_ENABLED
  #include "stm32f4xx_hal_rng.h"

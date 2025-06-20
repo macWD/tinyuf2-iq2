@@ -104,8 +104,28 @@ int main(void) {
 
 // check to see if we started from the app's upload function
 static bool checkBootloaderJumpFlag(void) {
-  // TODO: Implement a check for a bootloader flag
-  return true;  // boot code started from the app
+  static uint32_t boot_jump_flag = 0; // local flag storage
+
+  // turn on the backup SRAM (VBAT must be +3.3)
+  __HAL_RCC_PWR_CLK_ENABLE();
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_BKPSRAM_CLK_ENABLE();
+  // read the jump flag location from the backup SRAM
+  boot_jump_flag = *(__IO uint32_t *)(BKPSRAM_BASE);
+  // turn off the backup SRAM (not sure what would happen to IQ2 app otherwise)
+  __HAL_RCC_BKPSRAM_CLK_DISABLE();
+  //HAL_PWR_DisableBkUpAccess();
+  __HAL_RCC_PWR_CLK_DISABLE();
+
+  // Check to see if the IQ2 passed us a flag indicating it started the bootloader.
+  // Using a value protects against trashed SRAM which could happen if +VBAT fails. moo.
+  if (boot_jump_flag == 0xdeadbeef) {
+    *(__IO uint32_t *)(BKPSRAM_BASE) = 0;  // clear the flag to prevent getting here again
+    TUF2_LOG1("Boot code started from the IQ2 app\r\n");
+    return true;  // boot code started from the IQ2 app
+  }
+
+  return false; // boot code started from a POR or some other reset
 }
 
 // return true if start DFU mode, else App mode
