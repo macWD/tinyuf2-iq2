@@ -74,7 +74,7 @@
 #define USB_PRODUCT       "Red Jacket IQ2"
 
 #define UF2_PRODUCT_NAME  USB_MANUFACTURER " " USB_PRODUCT
-#define UF2_BOARD_ID      "IQ2-hw1"
+#define UF2_BOARD_ID      "IQ2"
 #define UF2_VOLUME_LABEL  "IQ2-BOOT"
 #define UF2_INDEX_URL     "https://www.veeder.com/us/red-jacket-iq2-smart-controller"
 
