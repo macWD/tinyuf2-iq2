@@ -61,8 +61,8 @@
 // Flash
 //--------------------------------------------------------------------+
 
-// Flash size of the board
-#define BOARD_FLASH_SIZE      (512 * 1024)
+// Flash size of the board = 2MB
+#define BOARD_FLASH_SIZE      (2 * 1024 * 1024)
 
 //--------------------------------------------------------------------+
 // USB UF2
